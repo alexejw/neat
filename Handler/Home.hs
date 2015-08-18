@@ -20,6 +20,8 @@ getHomeR = do
 getLoggedIn :: (Key User, User) -> Handler Html
 getLoggedIn (uid, user) = do
     loginLayout user $ [whamlet|
+     <div .container>
+          <div .row>         
              <h1>Welcome back, #{userName user}.
              <p>Current Balance: #{prettyISK $ userBalanceCents user} ISK.
              <p>Current Stock Worth: ...
@@ -34,8 +36,10 @@ getNotLoggedIn = do
     defaultLayout $ do
         setTitle "NEAT"
         [whamlet|
+         <div .container>
+           <div .row>   
             <h1>Welcome to NEAT.
-            <div>Here we should present features, images and other stuff to get people hooked.
+            <p>Here we should present features, images and other stuff to get people hooked.
         |]
 {-
     (formWidget, formEnctype) <- generateFormPost sampleForm
